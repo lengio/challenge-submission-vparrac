@@ -14,9 +14,9 @@ public class Main {
 
 	/**
 	 * Main method of the challenge. This method read the input by console and calls to
-	 * the method that solved the rotation problem
+	 * the methods that solved the challenge
 	 * @param args standard input arguments of Java
-	 * @throws IOException if any error in the writing/reading in console
+	 * @throws IOException if any error in the writing/reading of console
 	 */
 	public static void main(String[] args) throws IOException {
 		//Read the input
@@ -54,8 +54,11 @@ public class Main {
 	}
 
 	/**
-	 * This method return the most frequent n-gram of the String. Complexity |string|*log(|string|)
-	 * cause the 
+	 * This method return the most frequent n-gram of the String. Complexity O(|string|*log(|string|))
+	 * cause the first loop is |string| and the operations in a tree map (by javadocs) is log(n).
+	 * It is important that if we considerate that compare 2 strings is O(min(|string1|,|string2|), 
+	 * and to insert in the map we need to do compare operations, the entire complexity of algorithm
+	 * is O(|string|*log(|string|)*min(|string1|,|string2|) which is approximately O(n*n*log(n)) 
 	 * @param string to extract the most-common n-gram
 	 * @param n the length of grams
 	 * @return The most frequently n-gram
