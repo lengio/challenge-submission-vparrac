@@ -58,6 +58,7 @@ public class Main {
 			int frequency= frecuencies.get(ngrams[i]);
 			if(frequency>maxFrequency) {
 				ngram=ngrams[i];
+				maxFrequency=frequency;
 			}
 		}
 		return ngram;
