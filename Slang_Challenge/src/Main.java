@@ -12,6 +12,12 @@ import java.util.TreeMap;
  */
 public class Main {
 
+	/**
+	 * Main method of the challenge. This method read the input by console and calls to
+	 * the method that solved the rotation problem
+	 * @param args standard input arguments of Java
+	 * @throws IOException if any error in the writing/reading in console
+	 */
 	public static void main(String[] args) throws IOException {
 		//Read the input
 		BufferedReader bf= new BufferedReader(new InputStreamReader(System.in));
@@ -29,7 +35,12 @@ public class Main {
 		System.out.println("Part 2");
 		System.out.println(ngram);
 	}
-
+	/**
+	 * This method compute the n-grams. The complexity of this algorithm is O(|string|)
+	 * @param string to extract the n-grams
+	 * @param n the length of grams
+	 * @return an array of String that contains the n-grams
+	 */
 
 	private static String[] calculateNGrams(String string, int n) {	
 		int lenghNGrams=string.length()+1-n;	
@@ -40,6 +51,12 @@ public class Main {
 		return ngrams;
 	}
 
+	/**
+	 * This method return the most frequent n-gram of the String. Complexity n*n
+	 * @param string to extract the most-common n-gram
+	 * @param n the length of grams
+	 * @return The most frequently n-gram
+	 */
 	private static String mostFrequentNGram(String string, int n) {
 		String[] ngrams= calculateNGrams(string,n);		
 		Map<String, Integer> frecuencies= new TreeMap<String, Integer>();		
