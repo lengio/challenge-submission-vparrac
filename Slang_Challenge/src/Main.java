@@ -54,7 +54,8 @@ public class Main {
 	}
 
 	/**
-	 * This method return the most frequent n-gram of the String. Complexity n*n
+	 * This method return the most frequent n-gram of the String. Complexity |string|*log(|string|)
+	 * cause the 
 	 * @param string to extract the most-common n-gram
 	 * @param n the length of grams
 	 * @return The most frequently n-gram
