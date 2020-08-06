@@ -45,7 +45,9 @@ public class Main {
 	private static String[] calculateNGrams(String string, int n) {	
 		int lenghNGrams=string.length()+1-n;	
 		String[] ngrams= new String[lenghNGrams];
+		// Read the string
 		for (int i = 0; i < lenghNGrams; i++) {
+			//... And split it in the n-grams
 			ngrams[i]=string.substring(i, i+n);
 		}
 		return ngrams;
@@ -58,21 +60,25 @@ public class Main {
 	 * @return The most frequently n-gram
 	 */
 	private static String mostFrequentNGram(String string, int n) {
-		String[] ngrams= calculateNGrams(string,n);		
-		Map<String, Integer> frecuencies= new TreeMap<String, Integer>();		
+		// Part one: calculate n-grams
+		String[] ngrams= calculateNGrams(string,n);
+		// Create a Tree map to save the frequencies
+		Map<String, Integer> frequencies= new TreeMap<String, Integer>();		
 		for (int i = 0; i < ngrams.length; i++) {
-			if(frecuencies.containsKey(ngrams[i])) {
-				Integer previousValue=frecuencies.get(ngrams[i]);
-				frecuencies.put(ngrams[i], previousValue+1);
+			// Update the frequencies
+			if(frequencies.containsKey(ngrams[i])) {
+				Integer previousValue=frequencies.get(ngrams[i]);
+				frequencies.put(ngrams[i], previousValue+1);
 			}
 			else {
-				frecuencies.put(ngrams[i], 1);
+				frequencies.put(ngrams[i], 1);
 			}
 		}
 		int maxFrequency=0;
 		String ngram="";
+		//Search for the first most frequent n-gram
 		for (int i = 0; i < ngrams.length; i++) {
-			int frequency= frecuencies.get(ngrams[i]);
+			int frequency= frequencies.get(ngrams[i]);
 			if(frequency>maxFrequency) {
 				ngram=ngrams[i];
 				maxFrequency=frequency;
